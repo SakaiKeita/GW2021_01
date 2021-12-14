@@ -21,5 +21,21 @@ namespace BookSearcher {
         public MainWindow() {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            if(PassWord.Text == "abcde") {
+                Window1 sw = new Window1();
+                sw.Show();
+                this.Hide();
+            } else {
+
+                MessageBox.Show("パスワードが間違っています。");
+
+            }
+        }
+
+        private void Resetbutton_Click(object sender, RoutedEventArgs e) {
+            PassWord.Clear();
+        }
     }
 }

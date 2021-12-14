@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\infosys\source\repos\SakaiKeita\OOP2021\GW2021_01\BookSearcher\20E58PIC2ie53eT027d5c_PIC2018.jpg" />
+    </Window.Background>
     <Grid>
-        
+        <TextBox x:Name="PassWord" HorizontalAlignment="Left" Height="22" Margin="176,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.349,2.939">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.775"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Button x:Name="DecisionButton" Content="確定" HorizontalAlignment="Left" Margin="176,276,0,0" VerticalAlignment="Top" Width="122" Height="54" Click="Button_Click"/>
+        <Button x:Name="Resetbutton" Content="リセット" HorizontalAlignment="Left" Margin="363,276,0,0" VerticalAlignment="Top" Width="151" Height="54" Click="Resetbutton_Click"/>
+        <Label Content="ログイン画面" HorizontalAlignment="Left" Margin="176,35,0,0" VerticalAlignment="Top" Width="203" Height="60"  FontSize="40"/>
+        <Label Content="パスワード" HorizontalAlignment="Left" Margin="176,118,0,0" VerticalAlignment="Top" FontSize="24" Width="140" />
     </Grid>
 </Window>
