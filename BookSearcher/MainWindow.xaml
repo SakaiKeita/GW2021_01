@@ -20,8 +20,8 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="DecisionButton" Content="確定" HorizontalAlignment="Left" Margin="176,276,0,0" VerticalAlignment="Top" Width="122" Height="54" Click="Button_Click"/>
-        <Button x:Name="Resetbutton" Content="リセット" HorizontalAlignment="Left" Margin="363,276,0,0" VerticalAlignment="Top" Width="151" Height="54" Click="Resetbutton_Click"/>
+        <Button x:Name="DecisionButton" Content="確定" HorizontalAlignment="Left" Margin="176,276,0,0" VerticalAlignment="Top" Width="122" Height="54" Click="Button_Click" FontSize="40" />
+        <Button x:Name="Resetbutton" Content="リセット" HorizontalAlignment="Left" Margin="363,276,0,0" VerticalAlignment="Top" Width="151" Height="54" Click="Resetbutton_Click" FontSize="40" />
         <Label Content="ログイン画面" HorizontalAlignment="Left" Margin="176,35,0,0" VerticalAlignment="Top" Width="203" Height="60"  FontSize="40"/>
         <Label Content="パスワード" HorizontalAlignment="Left" Margin="176,118,0,0" VerticalAlignment="Top" FontSize="24" Width="140" />
     </Grid>

@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="C:\Users\infosys\source\repos\SakaiKeita\OOP2021\GW2021_01\BookSearcher\20E58PIC2ie53eT027d5c_PIC2018.jpg" />
+    </Window.Background>
     <Grid>
-        
+
+
+        <Label Content="本検索システム" HorizontalAlignment="Left" Margin="129,10,0,0" VerticalAlignment="Top" Width="397" FontSize="50" />
+        <Button Content="書籍一覧" HorizontalAlignment="Left" Margin="440,263,0,0" VerticalAlignment="Top" Width="231" Height="142" FontSize="40" Background="#FFDDDDDD" Click="Button_Click_1"/>
+        <Button Content="キーワード検索" HorizontalAlignment="Left" Margin="285,92,0,0" VerticalAlignment="Top" Width="231" Height="158" FontSize="40" Click="Button_Click"/>
+        <Button Content="書籍追加" HorizontalAlignment="Left" Margin="129,263,0,0" VerticalAlignment="Top" Width="231" Height="142" FontSize="40"/>
+        <Image HorizontalAlignment="Left" Height="137" VerticalAlignment="Top" Width="100" Margin="10,52,0,0" Source="R (1).png"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="10,222,0,0" VerticalAlignment="Top" Width="100" Source="R.jpg"/>
+
     </Grid>
 </Window>

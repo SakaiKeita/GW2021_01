@@ -10,24 +10,15 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BookSearcher {
     /// <summary>
-    /// Window1.xaml の相互作用ロジック
+    /// Window2.xaml の相互作用ロジック
     /// </summary>
-    public partial class Window1 : Window {
-        public Window1() {
+    public partial class Window2 : Window {
+        public Window2() {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e) {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e) {
-
         }
     }
 }
