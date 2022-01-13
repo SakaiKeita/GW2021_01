@@ -23,7 +23,7 @@ namespace BookSearcher {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            if(PassWord.Text == "abcde") {
+            if(PassWord.Text == "a") {
                 Window1 sw = new Window1();
                 sw.Show();
                 this.Hide();

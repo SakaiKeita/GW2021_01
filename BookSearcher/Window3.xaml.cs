@@ -22,7 +22,9 @@ namespace BookSearcher {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-
+            Window1 sw = new Window1();
+            sw.Show();
+            this.Hide();
         }
     }
 }
