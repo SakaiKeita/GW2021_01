@@ -15,22 +15,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
-
+//9784774187587
 namespace BookSearcher {
     /// <summary>
     /// Window4.xaml の相互作用ロジック
     /// </summary>
     public partial class Window4 : Window {
 
-
-
-
-
-
-
         public Window4() {
             InitializeComponent();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
@@ -39,36 +32,15 @@ namespace BookSearcher {
             this.Hide();
         }
 
-
         private void Button_Click_1(object sender, RoutedEventArgs e) {
-            //  int a = int.Parse(tbISBN.Text);
-            string a = tbISBN.Text;
-            var reslut = Title_Click(a);
-            foreach(var item in reslut) {
-                tbTitle.Text = item;
-          
-            }
-           
-            var author = Author_Click(a);
-            foreach(var items in author) {
-                tbAuthor.Text = items;
 
-            }
-
-            var publisher = Publisher_Click(a);
-            foreach(var itemsa in publisher) {
-               tbPublisher.Text = itemsa;
-
-            }
+            var publisher = Publisher_Click(tbISBN.Text);
+            tbPublisher.Text = publisher;
         }
 
-    
 
-
-
-
-    
-    private static IEnumerable<string> Publisher_Click(string c) {
+        private string Publisher_Click(string c) {
+            
             using(var wc = new WebClient()) {
                 wc.Headers.Add("Content-type", "charset=UTF-8");
                 var uriString = string.Format(@"https://iss.ndl.go.jp/api/opensearch?isbn={0}", c);
@@ -76,56 +48,40 @@ namespace BookSearcher {
                 var stream = wc.OpenRead(url);
 
                 XDocument xdoc = XDocument.Load(stream);
-                var Author = xdoc.Root.Descendants("publisher");
-                foreach(var Authors in Author) {
-
-
-                    string s = Regex.Replace(Authors.Value, ":", "");
-
-                    yield return s;
-                }
-            }
-        }
-            private static IEnumerable<string> Author_Click(string b) {
-            using(var wc = new WebClient()) {
-                wc.Headers.Add("Content-type", "charset=UTF-8");
-                var uriString = string.Format(@"https://iss.ndl.go.jp/api/opensearch?isbn={0}", b);
-                var url = new Uri(uriString);
-                var stream = wc.OpenRead(url);
-
-                XDocument xdoc = XDocument.Load(stream);              
+                var descriptions = xdoc.Root.Descendants("description");
                 var Author = xdoc.Root.Descendants("author");
+                var node = xdoc.Root.Descendants("title");
                 foreach(var Authors in Author) {
 
 
                     string s = Regex.Replace(Authors.Value, ":", "");
 
-                    yield return s;
+                    tbAuthor.Text = s;
                 }
+                
+                foreach(var nodes in node) {
+
+
+                    string s = Regex.Replace(nodes.Value, ":", "");
+
+                    tbTitle.Text = s;
+                }
+                int i = 0;
+                foreach(var item in descriptions) {
+                    string s = Regex.Replace(item.Value, "【¦】", "");
+                    char[] separator = new char[] { ',', '<', '>' };
+                    string[] splitted = s.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+                    if(i == 0) {
+                        i++;
+                    } else {
+                        c = splitted[1].ToString();
+                        if(c.Length < 3) {
+                            c = splitted[2].ToString();
+                        }
+                    }
+                }
+                return c;           
             }
         }
-                private static IEnumerable<string> Title_Click(string a) {
-            using(var wc = new WebClient()) {
-                wc.Headers.Add("Content-type", "charset=UTF-8");
-                var uriString = string.Format(@"https://iss.ndl.go.jp/api/opensearch?isbn={0}", a);
-                var url = new Uri(uriString);
-                var stream = wc.OpenRead(url);
-
-                XDocument xdoc = XDocument.Load(stream);
-                var nodes = xdoc.Root.Descendants("title");
-               
-                foreach(var node in nodes) {
-
-
-                    string s = Regex.Replace(node.Value, ":", "");
-
-                    yield return s;
-                }
-
-
-            }
-        }
-
-      
     }
 }

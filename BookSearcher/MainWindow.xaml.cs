@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,8 @@ namespace BookSearcher {
             InitializeComponent();
         }
 
+      
+
         private void Button_Click(object sender, RoutedEventArgs e) {
             if(PassWord.Text == "a") {
                 Window1 sw = new Window1();
@@ -34,6 +37,10 @@ namespace BookSearcher {
             }
         }
 
+        private void button1_Click(object sender, EventArgs e) {
+            SoundPlayer player = new SoundPlayer(@"C:/_work/test.wav");
+            player.Play();
+        }
         private void Resetbutton_Click(object sender, RoutedEventArgs e) {
             PassWord.Clear();
             

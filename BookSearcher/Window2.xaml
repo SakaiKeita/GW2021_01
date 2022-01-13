@@ -9,7 +9,7 @@
     <Window.Background>
         <ImageBrush ImageSource="C:\Users\infosys\source\repos\SakaiKeita\OOP2021\GW2021_01\BookSearcher\20E58PIC2ie53eT027d5c_PIC2018.jpg" />
     </Window.Background>
-    <Grid Margin="0,0,0,0">
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.576,0.501">
         <Label Content="キーワード検索" FontSize="30" HorizontalAlignment="Left" Margin="55,22,0,0" VerticalAlignment="Top" Height="50" Width="185" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -20,14 +20,20 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Margin="207,276,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52">
+            <ComboBoxItem>文学・小説</ComboBoxItem>
+            <ComboBoxItem>SF・ホラー・ファンタジー</ComboBoxItem>
+            <ComboBoxItem>社会・ビジネス</ComboBoxItem>
+            <ComboBoxItem>教育・学習</ComboBoxItem>
+
+        </ComboBox>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="207,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <Label Content="タイトル" FontSize="20" HorizontalAlignment="Left" Margin="99,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
         <Label Content="著者" FontSize="20" HorizontalAlignment="Left" Margin="100,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
         <Label Content="出版社" FontSize="20" HorizontalAlignment="Left" Margin="100,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
         <Label Content="ジャンル" FontSize="20" HorizontalAlignment="Left" Margin="131,261,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="207,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="207,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="321"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="207,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="207,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="207,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
         <Button Content="検索" HorizontalAlignment="Left" Margin="541,327,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="戻る" FontSize="20" HorizontalAlignment="Left" Margin="562,39,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click"/>
 

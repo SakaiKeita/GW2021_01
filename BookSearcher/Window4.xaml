@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
-        Title="Window4" Height="400" Width="800">
+        Title="Window4" Height="700" Width="700">
     <Window.Background>
         <ImageBrush ImageSource="C:\Users\infosys\source\repos\SakaiKeita\OOP2021\GW2021_01\BookSearcher\20E58PIC2ie53eT027d5c_PIC2018.jpg" />
     </Window.Background>
@@ -21,18 +21,17 @@
         <Label Content="著者" FontSize="20" HorizontalAlignment="Left" Margin="101,204,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label Content="タイトル" FontSize="20" HorizontalAlignment="Left" Margin="101,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,2.025" Grid.ColumnSpan="2"/>
         <Label Content="ジャンル" FontSize="20" HorizontalAlignment="Left" Margin="115,331,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Label Content="おすすめ度&#xD;&#xA;(1~5)" FontSize="20" HorizontalAlignment="Left" Margin="101,457,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="おすすめ度&#xD;&#xA;(1~5)" FontSize="20" HorizontalAlignment="Left" Margin="130,453,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label Content="メモ" FontSize="20" HorizontalAlignment="Left" Margin="114,400,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Margin="203,331,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52" Grid.ColumnSpan="2">
+        <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Margin="230,331,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52" Grid.ColumnSpan="2">
             <ComboBoxItem>文学・小説</ComboBoxItem>
             <ComboBoxItem>SF・ホラー・ファンタジー</ComboBoxItem>
             <ComboBoxItem>社会・ビジネス</ComboBoxItem>
             <ComboBoxItem>教育・学習</ComboBoxItem>
 
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="301,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Label Content="メモ" FontSize="20" HorizontalAlignment="Left" Margin="203,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.062,0.497" Grid.ColumnSpan="2"/>
-        <ComboBox HorizontalAlignment="Left" Margin="203,458,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
+        <TextBox HorizontalAlignment="Left" Height="79" Margin="230,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Grid.ColumnSpan="2"/>
+        <ComboBox HorizontalAlignment="Left" Margin="230,470,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
 
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
@@ -42,10 +41,11 @@
 
         </ComboBox>
         <Button Content="戻る" FontSize="25" HorizontalAlignment="Left" Margin="564,10,0,0" VerticalAlignment="Top" Width="91" Height="34" Click="Button_Click" Grid.ColumnSpan="2"/>
-        <Button Content="検索" HorizontalAlignment="Left" Margin="346,103,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbISBN" HorizontalAlignment="Left" Height="23" Margin="203,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
-        <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Height="69" Margin="203,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbAuthor" HorizontalAlignment="Left" Height="23" Margin="203,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="tbPublisher" HorizontalAlignment="Left" Height="23" Margin="203,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button Content="検索" HorizontalAlignment="Left" Margin="375,108,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbISBN" HorizontalAlignment="Left" Height="23" Margin="230,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" />
+        <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Height="69" Margin="230,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbAuthor" HorizontalAlignment="Left" Height="41" Margin="230,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbPublisher" HorizontalAlignment="Left" Height="23" Margin="230,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Button Grid.ColumnSpan="2" Content="追加" HorizontalAlignment="Left" Margin="502,540,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
