@@ -24,5 +24,7 @@
         <Button x:Name="Resetbutton" Content="リセット" HorizontalAlignment="Left" Margin="363,276,0,0" VerticalAlignment="Top" Width="151" Height="54" Click="Resetbutton_Click" FontSize="40" />
         <Label Content="ログイン画面" HorizontalAlignment="Left" Margin="176,35,0,0" VerticalAlignment="Top" Width="203" Height="60"  FontSize="40"/>
         <Label Content="パスワード" HorizontalAlignment="Left" Margin="176,118,0,0" VerticalAlignment="Top" FontSize="24" Width="140" />
+        <ComboBox HorizontalAlignment="Left" Margin="1225,4,-553,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="パスワードはaです" HorizontalAlignment="Left"  FontSize="40" Margin="422,57,-31,0" VerticalAlignment="Top" Width="401" Height="103"/>
     </Grid>
 </Window>

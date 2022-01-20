@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
-        Title="Window4" Height="700" Width="700">
+        Title="Window4" Height="700" Width="700" Loaded="Window_Loaded_1">
+    <Window.Resources>
+        <local:infosys202101DataSet x:Key="infosys202101DataSet"/>
+        <CollectionViewSource x:Key="librarySercherViewSource" Source="{Binding LibrarySercher, Source={StaticResource infosys202101DataSet}}"/>
+    </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="C:\Users\infosys\source\repos\SakaiKeita\OOP2021\GW2021_01\BookSearcher\20E58PIC2ie53eT027d5c_PIC2018.jpg" />
     </Window.Background>
-    <Grid>
+    <Grid DataContext="{StaticResource librarySercherViewSource}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
@@ -23,15 +27,15 @@
         <Label Content="ジャンル" FontSize="20" HorizontalAlignment="Left" Margin="115,331,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label Content="おすすめ度&#xD;&#xA;(1~5)" FontSize="20" HorizontalAlignment="Left" Margin="130,453,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label Content="メモ" FontSize="20" HorizontalAlignment="Left" Margin="114,400,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Margin="230,331,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52" Grid.ColumnSpan="2">
+        <ComboBox x:Name="Genre" HorizontalAlignment="Left" Margin="230,331,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52" Grid.ColumnSpan="2">
             <ComboBoxItem>文学・小説</ComboBoxItem>
             <ComboBoxItem>SF・ホラー・ファンタジー</ComboBoxItem>
             <ComboBoxItem>社会・ビジネス</ComboBoxItem>
             <ComboBoxItem>教育・学習</ComboBoxItem>
 
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" Height="79" Margin="230,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Grid.ColumnSpan="2"/>
-        <ComboBox HorizontalAlignment="Left" Margin="230,470,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
+        <TextBox x:Name="Memo" HorizontalAlignment="Left" Height="79" Margin="230,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="Recommend" HorizontalAlignment="Left" Margin="230,470,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
 
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
@@ -46,6 +50,17 @@
         <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Height="69" Margin="230,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbAuthor" HorizontalAlignment="Left" Height="41" Margin="230,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbPublisher" HorizontalAlignment="Left" Height="23" Margin="230,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Button Grid.ColumnSpan="2" Content="追加" HorizontalAlignment="Left" Margin="502,540,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Grid.ColumnSpan="2" Content="追加" HorizontalAlignment="Left" Margin="529,493,0,0" VerticalAlignment="Top" Width="96" Height="36" />
+        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="2" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,521,282,-52" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="Title" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="Author" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="publisherColumn" Binding="{Binding Publisher}" Header="Publisher" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="genreColumn" Binding="{Binding Genre}" Header="Genre" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="memoColumn" Binding="{Binding Memo}" Header="Memo" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="recommendationColumn" Binding="{Binding Recommendation}" Header="Recommendation" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
