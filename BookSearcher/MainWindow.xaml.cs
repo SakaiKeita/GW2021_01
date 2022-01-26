@@ -28,8 +28,9 @@ namespace BookSearcher {
         private void Button_Click(object sender, RoutedEventArgs e) {
             if(PassWord.Text == "a") {
                 Window1 sw = new Window1();
-                sw.Show();
-                this.Hide();
+                sw.ShowDialog();
+                MainWindow mw = new MainWindow();
+                mw.Close();
             } else {
 
                 MessageBox.Show("パスワードが間違っています。");
@@ -37,10 +38,7 @@ namespace BookSearcher {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            SoundPlayer player = new SoundPlayer(@"C:/_work/test.wav");
-            player.Play();
-        }
+     
         private void Resetbutton_Click(object sender, RoutedEventArgs e) {
             PassWord.Clear();
             

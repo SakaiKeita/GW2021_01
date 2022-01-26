@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,8 @@ namespace BookSearcher {
     /// </summary>
     public partial class Window3 : Window{
         BookSearcher.infosys202101DataSet infosys202101DataSet;
-       BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter;
+        BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter;
         System.Windows.Data.CollectionViewSource LibrarySercherViewSource;
-
-
 
         public Window3() {
             InitializeComponent();
@@ -40,8 +39,9 @@ namespace BookSearcher {
         }
         private void Button_Click(object sender, RoutedEventArgs e) {
             Window1 sw = new Window1();
-            sw.Show();
-            this.Hide();
+            sw.ShowDialog();
+            
+
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e) {
@@ -52,6 +52,11 @@ namespace BookSearcher {
             infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
             System.Windows.Data.CollectionViewSource librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
             librarySercherViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) {
+            DataRow newDrv = (DataRow)infosys202101DataSet.LibrarySercher.NewRow();
+            newDrv.Delete();
         }
     }
 }

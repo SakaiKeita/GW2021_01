@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
-        Title="Window4" Height="700" Width="700" Loaded="Window_Loaded_1">
+        Title="Window4" Height="700" Width="700" Loaded="Window_Loaded">
     <Window.Resources>
         <local:infosys202101DataSet x:Key="infosys202101DataSet"/>
         <CollectionViewSource x:Key="librarySercherViewSource" Source="{Binding LibrarySercher, Source={StaticResource infosys202101DataSet}}"/>
     </Window.Resources>
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\infosys\source\repos\SakaiKeita\OOP2021\GW2021_01\BookSearcher\20E58PIC2ie53eT027d5c_PIC2018.jpg" />
+        <ImageBrush ImageSource="/picture/20E58PIC2ie53eT027d5c_PIC2018.jpg" />
     </Window.Background>
-    <Grid DataContext="{StaticResource librarySercherViewSource}">
+    <Grid DataContext="{StaticResource librarySercherViewSource}" Margin="0,0,0,40">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
@@ -50,8 +50,8 @@
         <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Height="69" Margin="230,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbAuthor" HorizontalAlignment="Left" Height="41" Margin="230,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="2"/>
         <TextBox x:Name="tbPublisher" HorizontalAlignment="Left" Height="23" Margin="230,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Button Grid.ColumnSpan="2" Content="追加" HorizontalAlignment="Left" Margin="529,493,0,0" VerticalAlignment="Top" Width="96" Height="36" />
-        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="2" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,521,282,-52" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <Button Grid.ColumnSpan="2" Content="追加" HorizontalAlignment="Left" Margin="529,493,0,0" VerticalAlignment="Top" Width="96" Height="36" Click="Button_Click_2" />
+        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="2" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="101,511,191,-82" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="Title" Width="SizeToHeader"/>

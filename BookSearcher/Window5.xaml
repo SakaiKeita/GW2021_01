@@ -1,0 +1,27 @@
+﻿<Window x:Class="BookSearcher.Window5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookSearcher"
+        mc:Ignorable="d"
+        Title="Window5" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:infosys202101DataSet x:Key="infosys202101DataSet"/>
+        <CollectionViewSource x:Key="librarySercherViewSource" Source="{Binding LibrarySercher, Source={StaticResource infosys202101DataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource librarySercherViewSource}">
+        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="161,56,231,163" RowDetailsVisibilityMode="VisibleWhenSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="Title" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="Author" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="publisherColumn" Binding="{Binding Publisher}" Header="Publisher" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="genreColumn" Binding="{Binding Genre}" Header="Genre" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="memoColumn" Binding="{Binding Memo}" Header="Memo" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="recommendationColumn" Binding="{Binding Recommendation}" Header="Recommendation" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

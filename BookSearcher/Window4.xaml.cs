@@ -24,24 +24,33 @@ namespace BookSearcher {
     public partial class Window4 : Window {
         BookSearcher.infosys202101DataSet infosys202101DataSet;
         BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter;
-        System.Windows.Data.CollectionViewSource LibrarySercherViewSource;
+        System.Windows.Data.CollectionViewSource librarySercherViewSource;
         public Window4() {
             InitializeComponent();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
+            //infosys202101DataSet = ((BookSearcher.infosys202101DataSet)(this.FindResource("infosys202101DataSet")));
+            ////// テーブル CarReport にデータを読み込みます。必要に応じてこのコードを変更できます。
+            //infosys202101DataSetLibrarySercherTableAdapter = new BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter();
+            //infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
+            //LibrarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource(" LibrarySercherViewSource")));
+            //LibrarySercherViewSource.View.MoveCurrentToFirst();
+
             infosys202101DataSet = ((BookSearcher.infosys202101DataSet)(this.FindResource("infosys202101DataSet")));
-            //// テーブル CarReport にデータを読み込みます。必要に応じてこのコードを変更できます。
-            infosys202101DataSetLibrarySercherTableAdapter = new BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter();
+            // テーブル LibrarySercher にデータを読み込みます。必要に応じてこのコードを変更できます。
+             infosys202101DataSetLibrarySercherTableAdapter = new BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter();
             infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
-            LibrarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource(" LibrarySercherViewSource")));
-            LibrarySercherViewSource.View.MoveCurrentToFirst();
-           
+            librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
+            librarySercherViewSource.View.MoveCurrentToFirst();
+
+
+
         }
-            private void Button_Click(object sender, RoutedEventArgs e) {
+        private void Button_Click(object sender, RoutedEventArgs e) {
             Window1 sw = new Window1();
-            sw.Show();
-            this.Hide();
+            sw.ShowDialog();
+         
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) {
@@ -49,7 +58,6 @@ namespace BookSearcher {
             var publisher = Publisher_Click(tbISBN.Text);
             tbPublisher.Text = publisher;
         }
-
 
         private string Publisher_Click(string c) {
             
@@ -92,19 +100,25 @@ namespace BookSearcher {
                         }
                     }
                 }
-                return c;           
+                return c;
             }
         }
 
        
-        private void Window_Loaded_1(object sender, RoutedEventArgs e) {
+       
+        private void Button_Click_2(object sender, RoutedEventArgs e) {
+            DataRow newDrv = (DataRow)infosys202101DataSet.LibrarySercher.NewRow();
+           
+            newDrv[1] = tbTitle.Text;
+            newDrv[2] = tbAuthor.Text;
+            newDrv[3] = tbPublisher.Text;
+            newDrv[4] = Genre.Text;
+            newDrv[5] = Memo.Text;
+            newDrv[6] = Recommend.Text;
+            infosys202101DataSet.LibrarySercher.Rows.Add(newDrv);
+            //データベース更新
+            infosys202101DataSetLibrarySercherTableAdapter.Update(infosys202101DataSet.LibrarySercher);
 
-            BookSearcher.infosys202101DataSet infosys202101DataSet = ((BookSearcher.infosys202101DataSet)(this.FindResource("infosys202101DataSet")));
-            // テーブル LibrarySercher にデータを読み込みます。必要に応じてこのコードを変更できます。
-            BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter = new BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter();
-            infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
-            System.Windows.Data.CollectionViewSource librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
-            librarySercherViewSource.View.MoveCurrentToFirst();
         }
     }
 }
