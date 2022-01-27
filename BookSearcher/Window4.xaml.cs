@@ -43,10 +43,11 @@ namespace BookSearcher {
             infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
             librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
             librarySercherViewSource.View.MoveCurrentToFirst();
-
+         
 
 
         }
+
         private void Button_Click(object sender, RoutedEventArgs e) {
             Window1 sw = new Window1();
             sw.ShowDialog();
@@ -119,6 +120,34 @@ namespace BookSearcher {
             //データベース更新
             infosys202101DataSetLibrarySercherTableAdapter.Update(infosys202101DataSet.LibrarySercher);
 
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e) {
+            tbISBN.Text = "";
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e) {
+            tbTitle.Text = "";
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e) {
+            tbAuthor.Text = "";
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e) {
+            tbPublisher.Text = "";
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e) {
+            Genre.Text = "";
+        }
+
+        private void Button_Click_8(object sender, RoutedEventArgs e) {
+            Memo.Text = "";
+        }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e) {
+            Recommend.Text = "";
         }
     }
 }

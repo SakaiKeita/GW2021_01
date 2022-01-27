@@ -11,7 +11,7 @@
         <CollectionViewSource x:Key="librarySercherViewSource" Source="{Binding LibrarySercher, Source={StaticResource infosys202101DataSet}}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource librarySercherViewSource}">
-        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="161,56,231,163" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid x:Name="librarySercherDataGrid" AlternatingRowBackground="Aqua" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="161,56,231,163" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="Title" Width="SizeToHeader"/>

@@ -5,12 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="800">
+        Title="Window2" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:infosys202101DataSet x:Key="infosys202101DataSet"/>
+        <CollectionViewSource x:Key="librarySercherViewSource" Source="{Binding LibrarySercher, Source={StaticResource infosys202101DataSet}}"/>
+    </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="/picture/20E58PIC2ie53eT027d5c_PIC2018.jpg" />
     </Window.Background>
-    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.576,0.501">
-        <Label Content="キーワード検索" FontSize="30" HorizontalAlignment="Left" Margin="55,22,0,0" VerticalAlignment="Top" Height="50" Width="185" RenderTransformOrigin="0.5,0.5">
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.576,0.501" DataContext="{StaticResource librarySercherViewSource}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="467*"/>
+            <ColumnDefinition Width="325*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="197*"/>
+        </Grid.RowDefinitions>
+        <Label Content="キーワード検索" FontSize="30" HorizontalAlignment="Left" Margin="55,22,0,0" VerticalAlignment="Top" Height="50" Width="185" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,22 +32,38 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Margin="207,276,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52">
+        <ComboBox x:Name="Genre" HorizontalAlignment="Left" Margin="207,250,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52" Grid.Row="1">
             <ComboBoxItem>文学・小説</ComboBoxItem>
-            <ComboBoxItem>SF・ホラー・ファンタジー</ComboBoxItem>
+            <ComboBoxItem>SF・ホラー</ComboBoxItem>
             <ComboBoxItem>社会・ビジネス</ComboBoxItem>
             <ComboBoxItem>教育・学習</ComboBoxItem>
 
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="207,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Label Content="タイトル" FontSize="20" HorizontalAlignment="Left" Margin="99,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
-        <Label Content="著者" FontSize="20" HorizontalAlignment="Left" Margin="100,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
-        <Label Content="出版社" FontSize="20" HorizontalAlignment="Left" Margin="100,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
-        <Label Content="ジャンル" FontSize="20" HorizontalAlignment="Left" Margin="131,261,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586"/>
-        <TextBox HorizontalAlignment="Left" Height="24" Margin="207,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="207,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
-        <Button Content="検索" HorizontalAlignment="Left" Margin="541,327,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Button Content="戻る" FontSize="20" HorizontalAlignment="Left" Margin="562,39,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click"/>
+        <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Height="24" Margin="207,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.Row="1"/>
+        <Label Content="タイトル" FontSize="20" HorizontalAlignment="Left" Margin="99,92,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586" Grid.Row="1"/>
+        <Label Content="著者" FontSize="20" HorizontalAlignment="Left" Margin="100,144,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586" Grid.Row="1"/>
+        <Label Content="出版社" FontSize="20" HorizontalAlignment="Left" Margin="100,198,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586" Grid.Row="1"/>
+        <Label Content="ジャンル" FontSize="20" HorizontalAlignment="Left" Margin="131,236,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.217,-0.586" Grid.Row="1"/>
+        <TextBox x:Name="tbAuthor" HorizontalAlignment="Left" Height="24" Margin="207,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.Row="1"/>
+        <TextBox x:Name="tbPbulisher" HorizontalAlignment="Left" Height="24" Margin="207,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Grid.Row="1"/>
+        <Button Content="検索" HorizontalAlignment="Left" Margin="74,302,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="戻る" FontSize="20" HorizontalAlignment="Left" Margin="95,14,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="412,92,0,0" VerticalAlignment="Top" Width="20" Grid.Row="1" Click="Button_Click_2"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="412,144,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="-0.267,0.4" Grid.Row="1" Click="Button_Click_3"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="417,198,0,0" Grid.Row="1" VerticalAlignment="Top" Width="15" Click="Button_Click_4"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="348,250,0,0" Grid.Row="1" VerticalAlignment="Top" Width="19" Click="Button_Click_5"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="10,114,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
+        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="175,193,217,0" Grid.Row="1" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="Title" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="Author" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="publisherColumn" Binding="{Binding Publisher}" Header="Publisher" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="genreColumn" Binding="{Binding Genre}" Header="Genre" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="memoColumn" Binding="{Binding Memo}" Header="Memo" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="recommendationColumn" Binding="{Binding Recommendation}" Header="Recommendation" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

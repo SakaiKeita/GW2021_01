@@ -30,6 +30,12 @@ namespace BookSearcher {
             infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
             System.Windows.Data.CollectionViewSource librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
             librarySercherViewSource.View.MoveCurrentToFirst();
+            librarySercherDataGrid.Columns[1].Header = "名前";
+            //personDataGridView.Columns[2].HeaderText = "誕生日";
+            //personDataGridView.Columns[3].HeaderText = "電話番号";
+            //personDataGridView.Columns[4].HeaderText = "備考";
+
+
         }
     }
 }

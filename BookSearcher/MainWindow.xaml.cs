@@ -43,5 +43,9 @@ namespace BookSearcher {
             PassWord.Clear();
             
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) {
+            PassWord.Text = "";
+        }
     }
 }

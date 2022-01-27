@@ -55,8 +55,8 @@ namespace BookSearcher {
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) {
-            DataRow newDrv = (DataRow)infosys202101DataSet.LibrarySercher.NewRow();
-            newDrv.Delete();
+
+           
         }
     }
 }

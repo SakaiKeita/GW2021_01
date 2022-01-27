@@ -27,5 +27,6 @@
         <Label Content="パスワード" HorizontalAlignment="Left" Margin="176,118,0,0" VerticalAlignment="Top" FontSize="24" Width="140" />
         <ComboBox HorizontalAlignment="Left" Margin="1225,4,-553,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="パスワードはaです" HorizontalAlignment="Left"  FontSize="40" Margin="422,57,-31,0" VerticalAlignment="Top" Width="401" Height="103"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="495,179,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="1.341,0.645" Click="Button_Click_1"/>
     </Grid>
 </Window>
