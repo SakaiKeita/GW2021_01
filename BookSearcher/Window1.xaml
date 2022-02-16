@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="ホーム画面" Height="450" Width="800">
+
     <Window.Background>
-        <ImageBrush ImageSource="C:\Users\infosys\source\repos\SakaiKeita\OOP2021\GW2021_01\BookSearcher\20E58PIC2ie53eT027d5c_PIC2018.jpg" />
+        <ImageBrush ImageSource="/picture/20E58PIC2ie53eT027d5c_PIC2018.jpg" />
     </Window.Background>
     <Grid Margin="0,-46,-126,0">
         <Grid.ColumnDefinitions>
@@ -16,12 +17,49 @@
         </Grid.ColumnDefinitions>
 
 
-        <Label Content="書籍検索システム" HorizontalAlignment="Left" Margin="115,45,0,0" VerticalAlignment="Top" Width="397" FontSize="50" />
-        <Button Content="書籍一覧/削除" HorizontalAlignment="Left" Margin="419,296,0,0" VerticalAlignment="Top" Width="302" Height="142" FontSize="45" Background="#FFDDDDDD" Click="Button_Click_1" Grid.ColumnSpan="2"/>
-        <Button Content="キーワード検索" HorizontalAlignment="Left" Margin="256,127,0,0" VerticalAlignment="Top" Width="231" Height="158" FontSize="40" Click="Button_Click"/>
-        <Button Content="書籍追加" HorizontalAlignment="Left" Margin="89,296,0,0" VerticalAlignment="Top" Width="231" Height="142" FontSize="40" Click="Button_Click_2" RenderTransformOrigin="0.519,0.433"/>
-        <Image HorizontalAlignment="Left" Height="137" VerticalAlignment="Top" Width="100" Margin="10,52,0,0" Source="R (1).png"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="10,222,0,0" VerticalAlignment="Top" Width="100" Source="R.jpg"/>
+        <Label Content="書籍検索システム" HorizontalAlignment="Left" Margin="89,53,0,0" VerticalAlignment="Top" Width="437" FontSize="51" FontFamily="Arial Black" />
+        <Button Content="書籍一覧/削除" HorizontalAlignment="Left" Margin="415,313,0,0" VerticalAlignment="Top" Width="302" Height="142" FontSize="45" Click="Button_Click_1" Grid.ColumnSpan="2" FontFamily="Yu Gothic UI Semibold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+        <Button x:Name="KeyWordSercher" Content="キーワード検索" HorizontalAlignment="Left" Margin="256,127,0,0" VerticalAlignment="Top" Width="270" Height="158" FontSize="40" Click="Button_Click" FontFamily="Yu Gothic UI Semibold">
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button Content="書籍追加" HorizontalAlignment="Left" Margin="89,313,0,0" VerticalAlignment="Top" Width="231" Height="142" FontSize="40" Click="Button_Click_2" RenderTransformOrigin="0.519,0.433" FontFamily="Yu Gothic UI Semibold">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="終了" FontSize="40" HorizontalAlignment="Left" Margin="612,77,0,0" VerticalAlignment="Top" Width="105" Click="Button_Click_3" Height="57" Grid.ColumnSpan="2" RenderTransformOrigin="0.655,-0.287" FontFamily="Yu Gothic UI Semibold">
+        <Button.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FFDCFF00" Offset="1"/>
+                <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+            </LinearGradientBrush>
+        </Button.Background>
+        </Button>
+
+
 
     </Grid>
 </Window>

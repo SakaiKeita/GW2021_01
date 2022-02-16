@@ -43,15 +43,11 @@ namespace BookSearcher {
             infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
             librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
             librarySercherViewSource.View.MoveCurrentToFirst();
-         
-
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            Window1 sw = new Window1();
-            sw.ShowDialog();
-         
+            this.Close();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) {
@@ -73,7 +69,6 @@ namespace BookSearcher {
                 var Author = xdoc.Root.Descendants("author");
                 var node = xdoc.Root.Descendants("title");
                 foreach(var Authors in Author) {
-
 
                     string s = Regex.Replace(Authors.Value, ":", "");
 
@@ -105,23 +100,22 @@ namespace BookSearcher {
             }
         }
 
-       
-       
         private void Button_Click_2(object sender, RoutedEventArgs e) {
-            DataRow newDrv = (DataRow)infosys202101DataSet.LibrarySercher.NewRow();
-           
-            newDrv[1] = tbTitle.Text;
-            newDrv[2] = tbAuthor.Text;
-            newDrv[3] = tbPublisher.Text;
-            newDrv[4] = Genre.Text;
-            newDrv[5] = Memo.Text;
-            newDrv[6] = Recommend.Text;
-            infosys202101DataSet.LibrarySercher.Rows.Add(newDrv);
-            //データベース更新
-            infosys202101DataSetLibrarySercherTableAdapter.Update(infosys202101DataSet.LibrarySercher);
-
+            if(tbTitle.Text==""||tbAuthor.Text == "" || tbPublisher.Text == "" || Genre.Text == "" || Memo.Text == "" || Recommend.Text == "") {
+                MessageBox.Show("項目に空欄があります");
+            } else {
+                DataRow newDrv = (DataRow)infosys202101DataSet.LibrarySercher.NewRow();
+                newDrv[1] = tbTitle.Text;
+                newDrv[2] = tbAuthor.Text;
+                newDrv[3] = tbPublisher.Text;
+                newDrv[4] = Genre.Text;
+                newDrv[5] = Memo.Text;
+                newDrv[6] = Recommend.Text;
+                infosys202101DataSet.LibrarySercher.Rows.Add(newDrv);
+                //データベース更新
+                infosys202101DataSetLibrarySercherTableAdapter.Update(infosys202101DataSet.LibrarySercher);
+            }              
         }
-
         private void Button_Click_3(object sender, RoutedEventArgs e) {
             tbISBN.Text = "";
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +21,11 @@ namespace BookSearcher {
     public partial class Window3 : Window{
         BookSearcher.infosys202101DataSet infosys202101DataSet;
         BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter;
-        System.Windows.Data.CollectionViewSource LibrarySercherViewSource;
+        System.Windows.Data.CollectionViewSource librarySercherViewSource;
 
         public Window3() {
             InitializeComponent();
         }
-
-
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
@@ -34,29 +33,52 @@ namespace BookSearcher {
             //// テーブル CarReport にデータを読み込みます。必要に応じてこのコードを変更できます。
             infosys202101DataSetLibrarySercherTableAdapter = new BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter();
             infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
-            LibrarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource(" LibrarySercherViewSource")));
-            LibrarySercherViewSource.View.MoveCurrentToFirst();
-        }
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            Window1 sw = new Window1();
-            sw.ShowDialog();
-            
-
-        }
-
-        private void Window_Loaded_1(object sender, RoutedEventArgs e) {
-
-            BookSearcher.infosys202101DataSet infosys202101DataSet = ((BookSearcher.infosys202101DataSet)(this.FindResource("infosys202101DataSet")));
-            // テーブル LibrarySercher にデータを読み込みます。必要に応じてこのコードを変更できます。
-            BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter = new BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter();
-            infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
-            System.Windows.Data.CollectionViewSource librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
+            librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
             librarySercherViewSource.View.MoveCurrentToFirst();
+           
+        }
+        private void btback_Click(object sender, RoutedEventArgs e) {
+            this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e) {
+        //private void Window_Loaded_1(object sender, RoutedEventArgs e) {
 
+        //    BookSearcher.infosys202101DataSet infosys202101DataSet = ((BookSearcher.infosys202101DataSet)(this.FindResource("infosys202101DataSet")));
+        //    // テーブル LibrarySercher にデータを読み込みます。必要に応じてこのコードを変更できます。
+        //    BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter = new BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter();
+        //    infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
+        //    System.Windows.Data.CollectionViewSource librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
+        //    librarySercherViewSource.View.MoveCurrentToFirst();
+        //}
+        private void librarySercherDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+
+            //DataRowView dr = (DataRowView)librarySercherViewSource.View.CurrentItem;
+            //Memo.Text = dr[5].ToString();
            
+        }
+        private void btDelete_Click(object sender, RoutedEventArgs e) {
+
+            try {
+                DataRowView drv = (DataRowView)librarySercherViewSource.View.CurrentItem;
+                //選択されたレコードの削除
+
+                drv.Delete();
+
+                //データベース更新
+                infosys202101DataSetLibrarySercherTableAdapter.Update(infosys202101DataSet.LibrarySercher);
+            }
+            catch(Exception ex) {
+                // 例外が発生した時の処理
+                MessageBox.Show("この操作はできません");
+            }
+
+        }
+       
+        private void librarySercherDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+            DataRowView dr = (DataRowView)librarySercherViewSource.View.CurrentItem;
+            Memo.Text = dr[5].ToString();
+
         }
     }
 }

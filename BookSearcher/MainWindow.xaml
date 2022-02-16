@@ -5,13 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ログイン画面" Height="300" Width="400">
     <Window.Background>
         <ImageBrush ImageSource="/picture/20E58PIC2ie53eT027d5c_PIC2018.jpg" />
- 
+
     </Window.Background>
     <Grid>
-        <TextBox x:Name="PassWord" HorizontalAlignment="Left" Height="22" Margin="176,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" RenderTransformOrigin="0.349,2.939">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="142*"/>
+            <ColumnDefinition Width="251*"/>
+            <ColumnDefinition Width="282*"/>
+            <ColumnDefinition Width="22*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="PassWord" HorizontalAlignment="Left" Background="#FFE7FFD4" Height="22" Margin="12,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" RenderTransformOrigin="0.349,2.939" Grid.ColumnSpan="3" Grid.Column="3">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,12 +30,33 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="DecisionButton" Content="確定" HorizontalAlignment="Left" Margin="176,276,0,0" VerticalAlignment="Top" Width="122" Height="54" Click="Button_Click" FontSize="40" />
-        <Button x:Name="Resetbutton" Content="リセット" HorizontalAlignment="Left" Margin="363,276,0,0" VerticalAlignment="Top" Width="151" Height="54" Click="Resetbutton_Click" FontSize="40" />
-        <Label Content="ログイン画面" HorizontalAlignment="Left" Margin="176,35,0,0" VerticalAlignment="Top" Width="203" Height="60"  FontSize="40"/>
-        <Label Content="パスワード" HorizontalAlignment="Left" Margin="176,118,0,0" VerticalAlignment="Top" FontSize="24" Width="140" />
-        <ComboBox HorizontalAlignment="Left" Margin="1225,4,-553,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="パスワードはaです" HorizontalAlignment="Left"  FontSize="40" Margin="422,57,-31,0" VerticalAlignment="Top" Width="401" Height="103"/>
-        <Button Content="×" HorizontalAlignment="Left" Margin="495,179,0,0" VerticalAlignment="Top" Width="19" RenderTransformOrigin="1.341,0.645" Click="Button_Click_1"/>
+
+        <Button x:Name="DecisionButton" Content="確定" Margin="0,205,71,0" VerticalAlignment="Top" Height="54" Click="Button_Click" FontSize="40" FontFamily="Yu Gothic UI Semibold" BorderBrush="#FFB84141" Grid.Column="3" Grid.ColumnSpan="2" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+
+
+
+        <Button x:Name="Resetbutton" Content="リセット" HorizontalAlignment="Left" Margin="81,205,0,0" VerticalAlignment="Top" Width="151" Height="54" Click="Resetbutton_Click" FontSize="40" Grid.ColumnSpan="2" FontFamily="Yu Gothic UI Semibold" Grid.Column="4" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Label Content="ログイン画面" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="240" Height="60"  FontSize="40" FontFamily="Yu Gothic UI Semibold" Grid.Column="1" Grid.ColumnSpan="5"/>
+        <Label Content="パスワード" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" FontSize="24" Width="140" Grid.Column="3" Grid.ColumnSpan="2" />
+        <ComboBox HorizontalAlignment="Left" Margin="454.69,4,-553,0" VerticalAlignment="Top" Width="120" Grid.Column="6"/>
+        <Button Content="×" Grid.Column="5" HorizontalAlignment="Left" Margin="80,146,0,0" VerticalAlignment="Top" Width="28" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click_2"/>
     </Grid>
 </Window>

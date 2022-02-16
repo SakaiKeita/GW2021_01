@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookSearcher"
         mc:Ignorable="d"
-        Title="Window4" Height="700" Width="700" Loaded="Window_Loaded">
+        Title="書籍追加" Height="700" Width="700" Loaded="Window_Loaded">
     <Window.Resources>
         <local:infosys202101DataSet x:Key="infosys202101DataSet"/>
         <CollectionViewSource x:Key="librarySercherViewSource" Source="{Binding LibrarySercher, Source={StaticResource infosys202101DataSet}}"/>
@@ -23,24 +23,30 @@
             <ColumnDefinition Width="23*"/>
             <ColumnDefinition Width="229*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="書籍追加" FontSize="38" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Label Content="ISBN" FontSize="20" HorizontalAlignment="Left" Margin="101,66,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="書籍追加" FontSize="38" HorizontalAlignment="Left" Margin="34,0,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontFamily="Yu Gothic UI Semibold"/>
+        <Label Content="ISBN" FontSize="20" HorizontalAlignment="Left" Margin="97,66,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Label FontSize="20" HorizontalAlignment="Left" Margin="115,470,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Label Content="出版社" FontSize="20" HorizontalAlignment="Left" Margin="101,262,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.503,1.761" Grid.ColumnSpan="2"/>
-        <Label Content="著者" FontSize="20" HorizontalAlignment="Left" Margin="101,204,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Label Content="タイトル" FontSize="20" HorizontalAlignment="Left" Margin="101,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,2.025" Grid.ColumnSpan="2"/>
-        <Label Content="ジャンル" FontSize="20" HorizontalAlignment="Left" Margin="115,331,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Label Content="おすすめ度&#xD;&#xA;(1~5)" FontSize="20" HorizontalAlignment="Left" Margin="130,453,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Label Content="メモ" FontSize="20" HorizontalAlignment="Left" Margin="114,400,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="Genre" HorizontalAlignment="Left" Margin="230,331,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.312,2.52" Grid.ColumnSpan="3">
+        <Label Content="出版社" FontSize="20" HorizontalAlignment="Left" Margin="97,266,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.503,1.761" Grid.ColumnSpan="2"/>
+        <Label Content="著者" FontSize="20" HorizontalAlignment="Left" Margin="93,206,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="96"/>
+        <Label Content="タイトル" FontSize="20" HorizontalAlignment="Left" Margin="97,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.475,2.025" Grid.ColumnSpan="2"/>
+        <Label Content="ジャンル" FontSize="20" HorizontalAlignment="Left" Margin="104,319,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="おすすめ度&#xD;&#xA;(1~5)" FontSize="20" HorizontalAlignment="Left" Margin="86,443,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="メモ" FontSize="20" HorizontalAlignment="Left" Margin="115,382,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="Genre" HorizontalAlignment="Left" Margin="180,331,0,0" VerticalAlignment="Top" Width="309" RenderTransformOrigin="0.312,2.52" Grid.ColumnSpan="6" Grid.Column="1">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FFC0FD9D" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
             <ComboBoxItem>文学・小説</ComboBoxItem>
             <ComboBoxItem>SF・ホラー</ComboBoxItem>
             <ComboBoxItem>社会・ビジネス</ComboBoxItem>
             <ComboBoxItem>教育・学習</ComboBoxItem>
-
+            <ComboBoxItem>コミック</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="Memo" HorizontalAlignment="Left" Height="79" Margin="230,372,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" Grid.ColumnSpan="7"/>
-        <ComboBox x:Name="Recommend" HorizontalAlignment="Left" Margin="230,470,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3">
+        <TextBox x:Name="Memo" HorizontalAlignment="Left" Height="92" Background="#FFE7FFD4" Margin="180,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309" Grid.ColumnSpan="7"/>
+        <ComboBox x:Name="Recommend" HorizontalAlignment="Left" Margin="186,468,0,0" VerticalAlignment="Top" Width="303" Grid.ColumnSpan="7">
 
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
@@ -49,31 +55,56 @@
             <ComboBoxItem>5</ComboBoxItem>
 
         </ComboBox>
-        <Button Content="戻る" FontSize="25" HorizontalAlignment="Left" Margin="101,10,0,0" VerticalAlignment="Top" Width="91" Height="34" Click="Button_Click" Grid.Column="6"/>
-        <Button Content="検索" HorizontalAlignment="Left" Margin="104,108,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.ColumnSpan="4" Grid.Column="2"/>
-        <TextBox x:Name="tbISBN" HorizontalAlignment="Left" Height="23" Margin="230,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3" />
-        <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Height="69" Margin="230,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="tbAuthor" HorizontalAlignment="Left" Height="41" Margin="230,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="tbPublisher" HorizontalAlignment="Left" Height="23" Margin="230,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3"/>
-        <Button Content="追加" HorizontalAlignment="Left" Margin="73,480,0,0" VerticalAlignment="Top" Width="96" Height="36" Click="Button_Click_2" Grid.Column="6" />
-        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="7" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,516,156,-42" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <Button Content="戻る" FontSize="25" HorizontalAlignment="Left" Margin="123,17,0,0" VerticalAlignment="Top" Width="91" Height="34" Click="Button_Click" Grid.Column="6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button Content="検索" HorizontalAlignment="Left" Margin="48,110,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Grid.Column="6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <TextBox x:Name="tbISBN" HorizontalAlignment="Left" Background="#FFE7FFD4" Height="37" Margin="173,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="316" Grid.ColumnSpan="7" />
+        <TextBox x:Name="tbTitle" HorizontalAlignment="Left" Height="69" Background="#FFE7FFD4" Margin="176,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Grid.ColumnSpan="7" RenderTransformOrigin="0.684,0.58"/>
+        <TextBox x:Name="tbAuthor" HorizontalAlignment="Left" Height="41" Background="#FFE7FFD4" Margin="176,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Grid.ColumnSpan="7"/>
+        <TextBox x:Name="tbPublisher" HorizontalAlignment="Left" Height="23"  Margin="178,276,0,0" Background="#FFE7FFD4" TextWrapping="Wrap" VerticalAlignment="Top" Width="311" Grid.ColumnSpan="7"/>
+        <Button Content="追加" HorizontalAlignment="Left" Margin="77,480,0,0"  VerticalAlignment="Top" Width="96" Height="36" Click="Button_Click_2" Grid.Column="6" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDCFF00" Offset="1"/>
+                    <GradientStop Color="#FFF1FFE9" Offset="0.015"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <DataGrid x:Name="librarySercherDataGrid" AutoGenerateColumns="False" Grid.ColumnSpan="7" AlternatingRowBackground="YellowGreen"  EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="0,516,0,-42" RowDetailsVisibilityMode="VisibleWhenSelected" CanUserAddRows="False" Background="#FF9DE853">
             <DataGrid.Columns>
-                
-                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" FontSize="6" MinWidth="40"/>
-                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="タイトル" Width="SizeToHeader" MinWidth="100"/>
-                <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="著者" Width="SizeToHeader" MinWidth="100"/>
-                <DataGridTextColumn x:Name="publisherColumn" Binding="{Binding Publisher}" Header="出版社" Width="SizeToHeader" MinWidth="100"/>
-                <DataGridTextColumn x:Name="genreColumn" Binding="{Binding Genre}" Header="ジャンル" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="memoColumn" Binding="{Binding Memo}" Header="メモ" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="recommendationColumn" Binding="{Binding Recommendation}" Header="おすすめ度" Width="SizeToHeader"/>
+
+                <DataGridTextColumn x:Name="iDColumn" Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="SizeToHeader" FontSize="6" MinWidth="10"/>
+                <DataGridTextColumn x:Name="titleColumn" Binding="{Binding Title}" Header="タイトル" Width="SizeToHeader" MinWidth="150"/>
+                <DataGridTextColumn x:Name="authorColumn" Binding="{Binding Author}" Header="著者" Width="SizeToHeader" MinWidth="80"/>
+                <DataGridTextColumn x:Name="publisherColumn" Binding="{Binding Publisher}" Header="出版社" Width="SizeToHeader" MinWidth="70"/>
+                <DataGridTextColumn x:Name="genreColumn" Binding="{Binding Genre}" Header="ジャンル" MinWidth="90"/>
+                <DataGridTextColumn x:Name="memoColumn" Binding="{Binding Memo}" Header="メモ" Width="SizeToHeader" MinWidth="120"/>
+                <DataGridTextColumn x:Name="recommendationColumn" Binding="{Binding Recommendation}" Header="おすすめ度"  MinWidth="20"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="×" HorizontalAlignment="Left" Margin="79,88,0,0" VerticalAlignment="Top" Width="17" Click="Button_Click_3" Grid.Column="2"/>
-        <Button Grid.ColumnSpan="2" Content="×" HorizontalAlignment="Left" Margin="117,148,0,0" VerticalAlignment="Top" Width="17" Height="25" RenderTransformOrigin="0.353,0.6" Click="Button_Click_4" Grid.Column="2"/>
-        <Button Grid.ColumnSpan="2" Content="×" HorizontalAlignment="Left" Margin="117,226,0,0" VerticalAlignment="Top" Width="17" Click="Button_Click_5" Grid.Column="2"/>
-        <Button Content="×" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top" Width="21" Click="Button_Click_6" Grid.Column="2"/>
-        <Button Content="×" HorizontalAlignment="Left" Margin="84,331,0,0" VerticalAlignment="Top" Width="21" Click="Button_Click_7" Grid.Column="2"/>
-        <Button Content="×" HorizontalAlignment="Left" Margin="28,431,0,0" VerticalAlignment="Top" Width="22" Click="Button_Click_8" Grid.Column="6"/>
-        <Button Content="×" HorizontalAlignment="Left" Margin="84,472,0,0" VerticalAlignment="Top" Width="21" Click="Button_Click_9" Grid.Column="2"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="5,67,0,0" VerticalAlignment="Top" Width="26" Click="Button_Click_3" Grid.Column="6" Height="36" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.115,0.565"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Width="21" Height="69" RenderTransformOrigin="0.095,0.594" Click="Button_Click_4" Grid.Column="6" BorderBrush="{x:Null}" Background="{x:Null}"/>
+        <Button Content="×" Margin="5,218,198,0" VerticalAlignment="Top" Click="Button_Click_5" Grid.Column="6" Height="41" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="1.824,0.463"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" Width="26" Click="Button_Click_6" Grid.Column="6" Height="23" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="-0.346,0.217"/>
+        <Button Content="×" Margin="31,333,173,0" VerticalAlignment="Top" Click="Button_Click_7" Grid.Column="6" RenderTransformOrigin="1.429,0.25"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="25" Click="Button_Click_8" Grid.Column="6" Height="92" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        <Button Content="×" HorizontalAlignment="Left" Margin="31,470,0,0" VerticalAlignment="Top" Width="21" Click="Button_Click_9" Grid.Column="6" RenderTransformOrigin="-0.095,0.35"/>
     </Grid>
 </Window>

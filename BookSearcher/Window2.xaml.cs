@@ -20,6 +20,7 @@ namespace BookSearcher {
         BookSearcher.infosys202101DataSet infosys202101DataSet1;
         BookSearcher.infosys202101DataSetTableAdapters.LibrarySercherTableAdapter infosys202101DataSetLibrarySercherTableAdapter;
         System.Windows.Data.CollectionViewSource ViewSource;
+        
         public Window2() {
             InitializeComponent();
         }
@@ -31,8 +32,7 @@ namespace BookSearcher {
         //    infosys202101DataSetLibrarySercherTableAdapter.Fill(infosys202101DataSet.LibrarySercher);
         //    System.Windows.Data.CollectionViewSource librarySercherViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("librarySercherViewSource")));
         //    librarySercherViewSource.View.MoveCurrentToFirst();
-        //}
-
+        //
         private void Window_Loaded(object sender, RoutedEventArgs e) {
 
             infosys202101DataSet1 = ((BookSearcher.infosys202101DataSet)(this.FindResource("infosys202101DataSet")));
@@ -42,14 +42,8 @@ namespace BookSearcher {
             ViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("ViewSource")));
             ViewSource.View.MoveCurrentToFirst();
         }
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            Window1 sw = new Window1();
-            sw.ShowDialog();
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e) {
-
+        private void btback_Click(object sender, RoutedEventArgs e) {
+            this.Close();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e) {
@@ -62,15 +56,20 @@ namespace BookSearcher {
 
         private void Button_Click_4(object sender, RoutedEventArgs e) {
             tbPbulisher.Text = "";
-        }
+        }   
 
-        private void Button_Click_5(object sender, RoutedEventArgs e) {
-            Genre.Text = "";
-        }
-
-        private void Button_Click_6(object sender, RoutedEventArgs e) {
+        private void TitleSerch(object sender, RoutedEventArgs e) {
             this.infosys202101DataSetLibrarySercherTableAdapter.FillByTitle(this.infosys202101DataSet1.LibrarySercher, tbTitle.Text);
         }
 
+        private void AuthorSerch(object sender, RoutedEventArgs e) {
+            this.infosys202101DataSetLibrarySercherTableAdapter.FillByAuthor(this.infosys202101DataSet1.LibrarySercher, tbAuthor.Text);
+        }
+
+        private void PublisherSerch(object sender, RoutedEventArgs e) {
+            this.infosys202101DataSetLibrarySercherTableAdapter.FillByPublisher(this.infosys202101DataSet1.LibrarySercher, tbPbulisher.Text);
+        }
+
+       
     }
 }

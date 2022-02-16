@@ -492,12 +492,11 @@ namespace BookSearcher {
                 this.columnID.AllowDBNull = false;
                 this.columnID.ReadOnly = true;
                 this.columnID.Unique = true;
-                this.columnTitle.MaxLength = 50;
-                this.columnAuthor.MaxLength = 30;
-                this.columnPublisher.MaxLength = 20;
-                this.columnGenre.MaxLength = 10;
-                this.columnMemo.AllowDBNull = false;
-                this.columnMemo.MaxLength = 200;
+                this.columnTitle.MaxLength = 1000;
+                this.columnAuthor.MaxLength = 1000;
+                this.columnPublisher.MaxLength = 1000;
+                this.columnGenre.MaxLength = 1999;
+                this.columnMemo.MaxLength = 1000;
                 this.columnRecommendation.MaxLength = 1;
             }
             
@@ -718,7 +717,12 @@ namespace BookSearcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string Memo {
                 get {
-                    return ((string)(this[this.tableLibrarySercher.MemoColumn]));
+                    try {
+                        return ((string)(this[this.tableLibrarySercher.MemoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("テーブル \'LibrarySercher\' にある列 \'Memo\' の値は DBNull です。", e);
+                    }
                 }
                 set {
                     this[this.tableLibrarySercher.MemoColumn] = value;
@@ -787,6 +791,18 @@ namespace BookSearcher {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetGenreNull() {
                 this[this.tableLibrarySercher.GenreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsMemoNull() {
+                return this.IsNull(this.tableLibrarySercher.MemoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetMemoNull() {
+                this[this.tableLibrarySercher.MemoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1261,7 +1277,7 @@ SELECT ID, Title, Author, Publisher, Genre, Memo, Recommendation FROM LibrarySer
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Genre));
             }
             if ((Original_Memo == null)) {
-                throw new global::System.ArgumentNullException("Original_Memo");
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Memo));
@@ -1320,7 +1336,7 @@ SELECT ID, Title, Author, Publisher, Genre, Memo, Recommendation FROM LibrarySer
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Genre));
             }
             if ((Memo == null)) {
-                throw new global::System.ArgumentNullException("Memo");
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Memo));
@@ -1377,7 +1393,7 @@ SELECT ID, Title, Author, Publisher, Genre, Memo, Recommendation FROM LibrarySer
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Genre));
             }
             if ((Memo == null)) {
-                throw new global::System.ArgumentNullException("Memo");
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Memo));
@@ -1422,7 +1438,7 @@ SELECT ID, Title, Author, Publisher, Genre, Memo, Recommendation FROM LibrarySer
                 this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Genre));
             }
             if ((Original_Memo == null)) {
-                throw new global::System.ArgumentNullException("Original_Memo");
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Memo));
